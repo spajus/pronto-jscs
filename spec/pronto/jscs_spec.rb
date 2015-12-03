@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry-nav'
 
 module Pronto
   describe JSCSRunner do
@@ -18,7 +17,6 @@ module Pronto
         let(:violations) { subject[patches.first.new_file_full_path.to_s] }
 
         specify do
-          binding.pry
           expect(violations.first['message']).to eq(
             'Expected indentation of 2 characters')
           expect(violations.count).to be(2)
