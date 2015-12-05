@@ -12,6 +12,9 @@ module Pronto
         params << ' -p airbnb' unless File.exist?('.jscsrc')
         output = `jscs "#{path}" #{params}`
         JSON.parse(output)
+      rescue => e
+        puts "ERROR: pronto-jscs failed to process a diff: #{e}"
+        []
       end
     end
   end
