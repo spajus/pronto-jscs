@@ -10,7 +10,7 @@ module Pronto
         path = @patch.new_file_full_path.to_s
         params = '--reporter=json'
         params << ' -p airbnb' unless File.exist?('.jscsrc')
-        output = `jscs #{path} #{params}`
+        output = `jscs "#{path}" #{params}`
         JSON.parse(output)
       end
     end
