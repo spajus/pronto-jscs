@@ -31,7 +31,7 @@ module Pronto
     end
 
     def js_file?(path)
-      %w(.js .erb .html).include?(File.extname(path))
+      File.extname(path) == '.js'
     end
   end
 end
