@@ -3,9 +3,9 @@ require 'pronto/jscs/wrapper'
 
 module Pronto
   class JSCSRunner < Runner
-    def run(patches, _)
-      return [] unless patches
-      patches.select { |p| p.additions > 0 }
+    def run
+      return [] unless @patches
+      @patches.select { |p| p.additions > 0 }
         .select { |p| js_file?(p.new_file_full_path) }
         .map { |p| inspect(p) }
         .flatten
@@ -27,7 +27,7 @@ module Pronto
     def new_message(offence, line)
       path = line.patch.delta.new_file[:path]
       level = :warning
-      Message.new(path, line, level, offence['message'])
+      Message.new(path, line, level, offence['message'], nil, self.class)
     end
 
     def js_file?(path)
