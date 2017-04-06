@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Tomas Varaneckas']
   spec.email         = ['tomas.varaneckas@gmail.com']
   spec.summary       = 'Pronto runner for JSCS, JavaScript Code Style checker'
-  spec.homepage      = 'http://github.org/spajus/pronto-jscs'
+  spec.homepage      = 'http://github.com/spajus/pronto-jscs'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
